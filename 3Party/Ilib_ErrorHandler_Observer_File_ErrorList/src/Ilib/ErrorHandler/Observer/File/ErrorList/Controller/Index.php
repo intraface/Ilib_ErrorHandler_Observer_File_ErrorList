@@ -1,11 +1,11 @@
 <?php
 
-class Intraface_Tools_Controller_ErrorList extends k_Controller
+class Ilib_ErrorHandler_Observer_File_ErrorList_Controller_Index extends k_Controller
 {
     public $map = array(
-        'rss' => 'Intraface_Tools_Controller_ErrorList_RSS',
-        'all' => 'Intraface_Tools_Controller_ErrorList_All',
-        'unique' => 'Intraface_Tools_Controller_ErrorList_Unique'
+        'rss' => 'Ilib_ErrorHandler_Observer_File_ErrorList_Controller_View_RSS',
+        'all' => 'Ilib_ErrorHandler_Observer_File_ErrorList_Controller_View_All',
+        'unique' => 'Ilib_ErrorHandler_Observer_File_ErrorList_Controller_View_Unique'
     );
 
     
