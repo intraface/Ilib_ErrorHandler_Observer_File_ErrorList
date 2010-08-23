@@ -15,10 +15,15 @@ class Ilib_ErrorHandler_Observer_File_ErrorList_Controller_Index extends k_Compo
 
     function renderHtml()
     {
-        if ($this->query('unique')) {
-            $data['items'] = $this->errorlist->getUnique();
-        } else {
-            $data['items'] = $this->errorlist->getAll();
+        try {
+            if ($this->query('unique')) {
+                $data['items'] = $this->errorlist->getUnique();
+            } else {
+                $data['items'] = $this->errorlist->getAll();
+            }
+        } catch (Exception $e) {
+            $data['message'] = 'We where unable to get the errors. Either there is none or the path is not correct. We got the message "'.$e->getMessage().'"';
+            $data['items'] = array();
         }
 
         try {

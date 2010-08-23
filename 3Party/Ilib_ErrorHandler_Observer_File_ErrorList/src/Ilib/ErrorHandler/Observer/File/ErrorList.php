@@ -9,13 +9,14 @@ class Ilib_ErrorHandler_Observer_File_ErrorList
     function __construct($filename)
     {
         $this->error_file = $filename;
-        if (!file_exists($filename)) {
-            throw new Exception('error log not found ' . $filename);
-        }
     }
     
     private function getRawErrorList()
     {
+        if (!file_exists($this->error_file)) {
+            throw new Exception('Error log not found ' . $this->error_file);
+        }
+        
         $errors = file($this->error_file);
         return $errors;
     }
